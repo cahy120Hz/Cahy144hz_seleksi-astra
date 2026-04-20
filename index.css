@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 50% 5%;
+    --foreground: 0 0% 98%;
+    --card: 250 50% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 250 50% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 258 100% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 190 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 250 30% 15%;
+    --muted-foreground: 250 10% 60%;
+    --accent: 258 100% 62%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 258 50% 20%;
+    --input: 258 50% 20%;
+    --ring: 190 100% 50%;
+    --radius: 0.75rem;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(10, 5, 40, 0.5);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #6C3BFF, #00D4FF);
+    border-radius: 3px;
+  }
+}
+
+@layer utilities {
+  /* Neon glow animations */
+  @keyframes neonPulse {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(108, 59, 255, 0.5), 0 0 10px rgba(108, 59, 255, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 15px rgba(108, 59, 255, 0.8), 0 0 30px rgba(0, 212, 255, 0.4);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.15;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.25;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  .neon-glow {
+    animation: neonPulse 3s ease-in-out infinite;
+  }
+
+  .float-animation {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: rgba(10, 5, 40, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(108, 59, 255, 0.2);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #6C3BFF, #00D4FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Input focus glow */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2), 0 0 15px rgba(0, 212, 255, 0.1) !important;
+  }
+
+  /* Button hover glow */
+  button:hover {
+    filter: brightness(1.1);
+  }
+}
